@@ -59,6 +59,8 @@ SPLIT3 = loss("сплиттер 1→3 XINQY", 5.3)          # график пр�
 JUMPER = loss("перемычка SMA RG316", 0.3)         # [О]
 SAW_BRD = loss("ПАВ на плате с SMA", 2.0)         # ПАВ 1.4–1.6 дБ [ВД, ВИ] + плата и разъёмы [О]
 MIX_1983 = ("LTC5510, схема DC1983A", 1.4, 12.1)  # fIN 900, fLO 2475, fOUT 1575 МГц, демо-мануал [ВД]
+MIX_213M = loss("HMC213, модуль с Али", 10.5)     # ПЧ 1.2 ГГц, LO +13 дБм: график паспорта HMC213B, рис. 56 [ВД]
+LNA_M = ("МШУ-модуль (как BGA855N6)", 17.8, 0.6)  # заглушка: у модуля с Али параметры не сверены [О]
 
 
 def cascade(stages):
@@ -112,6 +114,10 @@ def budget():
         "B: L1 → RX1 напрямую": [CABLE_L1, BIAS_M, SPLIT3, JUMPER],
         "B: L5 → ПАВ → LTC5510 → ПАВ → RX2": [CABLE_L5, BIAS_M, SPLIT3, JUMPER, SAW_BRD, JUMPER,
                                               MIX_1983, JUMPER, SAW_BRD, JUMPER],
+        "B: L5 → ПАВ → HMC213 → ПАВ → RX2": [CABLE_L5, BIAS_M, SPLIT3, JUMPER, SAW_BRD, JUMPER,
+                                             MIX_213M, JUMPER, SAW_BRD, JUMPER],
+        "B: L5 → ПАВ → МШУ → HMC213 → ПАВ → RX2": [CABLE_L5, BIAS_M, SPLIT3, JUMPER, SAW_BRD, JUMPER,
+                                                   LNA_M, JUMPER, MIX_213M, JUMPER, SAW_BRD, JUMPER],
     }
     for title, chain in paths.items():
         for g_ant in (28, 36, 40):
