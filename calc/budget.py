@@ -72,6 +72,11 @@ CABLE316_L5 = loss("кабель 5 м RG316", 4.5)         # ~0.9 дБ/м на 1
 SPF = ("SPF5189Z модуль", 14.0, 0.8)               # 13.8 дБ / 0.75 дБ на 1.7 ГГц, паспорт DS110606 [ВД]; на 1.58 ГГц чуть больше [О]
 SAW_M = loss("ПАВ L1 модулем с Али", 2.5)            # потери не сверены [О]
 
+# Своя плата v2 (2026-10-28): один вход ANT с Bias-T, делитель 1:2 + 1:2 (четвёртое плечо — запасной выход),
+# в каждом плече ПАВ и МШУ, в плече L1 — смеситель; схема A
+DIV4 = loss("делитель 1:2 + 1:2 на линиях", 7.0)       # 6.0 деления + 2 × 0.5 [О]
+LNA1_524 = ("МШУ L1 BGA524N6", 19.6, 0.73)            # 1575.42 МГц, 2.8 В, плата Infineon (AN по поиску) [ВИ]
+
 
 def cascade(stages):
     g, f = 1.0, 1.0
@@ -148,6 +153,17 @@ def budget():
             for g_ant in (26, 28, 30):
                 report(title, chain, g_ant)
             print()
+    print(" Своя плата v2 (2026-10-28): делитель 1:2 + 1:2, ПАВ и МШУ в каждом плече, схема A; кабель 5 м RG58\n")
+    paths = {
+        "OUT1: L5 → ПАВ → BGA855N6": [CABLE_L5, BIAS, DIV4, SAW5, LNA5, OUT],
+        "OUT2: L1 → ПАВ → BGA524N6 → LTC5510 → ФНЧ": [CABLE_L1, BIAS, DIV4, SAW1, LNA1_524, MIX_A, LFCN, OUT],
+        "OUT2: L1 → ПАВ → BGA524N6 → HMC213B → ФНЧ → BGA855N6": [CABLE_L1, BIAS, DIV4, SAW1, LNA1_524, MIX_H, LFCN, LNA5, OUT],
+        "OUT2: то же без BGA855N6 после HMC213B": [CABLE_L1, BIAS, DIV4, SAW1, LNA1_524, MIX_H, LFCN, OUT],
+    }
+    for title, chain in paths.items():
+        for g_ant in (28, 40):
+            report(title, chain, g_ant)
+        print()
 
 
 STRONG = [
