@@ -64,6 +64,14 @@ LNA_M = ("МШУ-модуль (как BGA855N6)", 17.8, 0.6)  # заглушка
 BFCN = loss("BFCN-1575+ на тестовой плате", 2.5)  # 2.0 тип., 3.0 макс. [ВД] + плата и разъёмы [О]
 LFCN = loss("LFCN-1575+ на тестовой плате", 0.8)  # 0.36 дБ на 1000 МГц, 0.76 на 1575 [ВД] + плата [О]
 
+# Набор 2026-10-28 (картинки продавцов в ~/Downloads/iono): антенна TAN1216Q50A — МШУ 28 дБ тип.,
+# Кш 1.5 тип. / 2 макс. [ВИ, картинка продавца]; сплиттер XINQY XQY-PS2-0.5/6-SI (1→2)
+SPLIT2 = loss("сплиттер 1→2 XINQY PS2", 3.3)        # график продавца S21 −3.19 (0.5 ГГц) … −3.42 дБ (2.45 ГГц) [ВИ]
+CABLE316_L1 = loss("кабель 5 м RG316", 5.3)         # ~1.05 дБ/м на 1.6 ГГц, типовое [О]
+CABLE316_L5 = loss("кабель 5 м RG316", 4.5)         # ~0.9 дБ/м на 1.2 ГГц, типовое [О]
+SPF = ("SPF5189Z модуль", 14.0, 0.8)               # 13.8 дБ / 0.75 дБ на 1.7 ГГц, паспорт DS110606 [ВД]; на 1.58 ГГц чуть больше [О]
+SAW_M = loss("ПАВ L1 модулем с Али", 2.5)            # потери не сверены [О]
+
 
 def cascade(stages):
     g, f = 1.0, 1.0
@@ -127,6 +135,19 @@ def budget():
         for g_ant in (28, 36, 40):
             report(title, chain, g_ant)
         print()
+    print(" Набор 2026-10-28: антенна TAN1216Q50A 28 дБ (±2), сплиттер 1→2, схема A, HMC213\n")
+    for cab, (c1, c5) in {"RG58": (CABLE_L1, CABLE_L5), "RG316": (CABLE316_L1, CABLE316_L5)}.items():
+        paths = {
+            f"A: L5 → RX1 напрямую, {cab}": [c5, BIAS_M, SPLIT2, JUMPER],
+            f"A: L1 → ПАВ → SPF5189Z → HMC213 → ФНЧ → RX2, {cab}": [c1, BIAS_M, SPLIT2, JUMPER, SAW_M, JUMPER,
+                                                                SPF, JUMPER, MIX_213M, JUMPER, LFCN, JUMPER],
+            f"A: L1 → ПАВ → HMC213 → ФНЧ → RX2 без МШУ, {cab}": [c1, BIAS_M, SPLIT2, JUMPER, SAW_M, JUMPER,
+                                                             MIX_213M, JUMPER, LFCN, JUMPER],
+        }
+        for title, chain in paths.items():
+            for g_ant in (26, 28, 30):
+                report(title, chain, g_ant)
+            print()
 
 
 STRONG = [
