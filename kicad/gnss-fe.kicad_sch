@@ -1,0 +1,697 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "32c841a2-ce96-4499-8ddc-dc963989905a")
+	(paper "A3")
+	(title_block
+		(title "Плата v2: структура")
+		(date "2026-10-28")
+		(rev "черновик")
+		(company "gnss-fe: плата v2 — фронтенд L1/L5 к LibreSDR")
+		(comment 1 "По docs/04-Схема-черновик.md; сгенерировано kicad/tools/gen_sch.py")
+		(comment 2 "[ВД] паспорт · [ВИ] вторичный источник · [И] измерение · [О] оценка")
+		(comment 3 "Проверено только по паспортам и нетлисту, не в железе")
+		(comment 4 "Лист 1")
+	)
+	(lib_symbols)
+	(text "Плата v2 (решение 2026-10-28): один вход антенны с Bias-T, делитель 1:2 + 1:2, в каждом плече ПАВ и МШУ,\nв плече L1 — смеситель LTC5510 (гетеродин 2751.87 МГц от TX1). Схема каналов A.\nOUT1 — L5 → LibreSDR RX1; OUT2 — L1 на 1176.45 МГц (спектр инвертирован) → RX2; OUT3 — L2 → HackRF;\nOUT4 — широкая полоса с делителя. Описание — docs/03-Плата-v2.md, черновик схемы — docs/04-Схема-черновик.md."
+		(exclude_from_sim no)
+		(at 20.32 167.64 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "30c715f6-805d-4fa1-9f06-70aed5824612")
+	)
+	(wire
+		(pts
+			(xy 157.48 30.48) (xy 182.88 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0c512abb-7dec-43f7-9ad1-a2fbb7e1feb1")
+	)
+	(wire
+		(pts
+			(xy 157.48 111.76) (xy 182.88 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2305d872-1ba8-41a9-8eab-29865b835365")
+	)
+	(wire
+		(pts
+			(xy 76.2 73.66) (xy 101.6 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "26c6752f-53ed-4eb7-8e4e-3cb0ed34fd70")
+	)
+	(wire
+		(pts
+			(xy 147.32 68.58) (xy 182.88 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5e349c61-db94-4908-a005-28265110a708")
+	)
+	(wire
+		(pts
+			(xy 157.48 78.74) (xy 157.48 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "65478520-e6e5-408a-a0f0-ffbd64858f86")
+	)
+	(wire
+		(pts
+			(xy 147.32 78.74) (xy 157.48 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "73609e6e-ce76-4e72-833a-bdbefe860366")
+	)
+	(wire
+		(pts
+			(xy 147.32 88.9) (xy 152.4 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7af41da5-101d-4010-8247-8afded8d3adf")
+	)
+	(wire
+		(pts
+			(xy 152.4 147.32) (xy 182.88 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8370eff5-cd99-4994-953a-b4330ed8ba2b")
+	)
+	(wire
+		(pts
+			(xy 238.76 71.12) (xy 264.16 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "854e6c6b-be44-4db8-b7a5-8b0110931141")
+	)
+	(wire
+		(pts
+			(xy 157.48 58.42) (xy 157.48 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "953abf6a-23bb-4a50-b409-d45b47e3696b")
+	)
+	(wire
+		(pts
+			(xy 152.4 88.9) (xy 152.4 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b6c9a6de-bfb6-4361-aed0-343e6c9debd4")
+	)
+	(wire
+		(pts
+			(xy 147.32 58.42) (xy 157.48 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d32141c7-5ed4-423b-8266-f57f28b831d8")
+	)
+	(sheet
+		(at 182.88 20.32)
+		(size 55.88 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "0dab2448-df02-4959-803b-ebea7f458540")
+		(property "Sheetname" "D. Тракт L5 → OUT1"
+			(at 182.88 19.62 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "D_L5.kicad_sch"
+			(at 182.88 41.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "P1" input
+			(at 182.88 30.48 180)
+			(uuid "a54f09e2-53b6-4500-b075-6a78cce546d0")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "gnss-fe"
+				(path "/32c841a2-ce96-4499-8ddc-dc963989905a"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 182.88 101.6)
+		(size 55.88 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "1c90ac0c-15ed-4c0c-b736-9526a0c193af")
+		(property "Sheetname" "F. Тракт L2 → OUT3"
+			(at 182.88 100.9 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "F_L2.kicad_sch"
+			(at 182.88 122.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "P3" input
+			(at 182.88 111.76 180)
+			(uuid "a93ca2b5-aa55-4395-adc7-675d240538ef")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "gnss-fe"
+				(path "/32c841a2-ce96-4499-8ddc-dc963989905a"
+					(page "7")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 20.32 20.32)
+		(size 50.8 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "1d9f989c-7e7e-49f5-aa90-dc5ccb870ed7")
+		(property "Sheetname" "A. Питание"
+			(at 20.32 19.62 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "A_power.kicad_sch"
+			(at 20.32 41.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "gnss-fe"
+				(path "/32c841a2-ce96-4499-8ddc-dc963989905a"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 182.88 55.88)
+		(size 55.88 30.48)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "2fa4f4dc-f70e-4769-8c42-51af7319409d")
+		(property "Sheetname" "E. Тракт L1 → смеситель LTC5510 → OUT2"
+			(at 182.88 55.18 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "E_L1_mixer.kicad_sch"
+			(at 182.88 86.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "P2" input
+			(at 182.88 68.58 180)
+			(uuid "2b5d6117-0df7-439c-a22e-09144e78e667")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "LO_HPF" input
+			(at 238.76 71.12 0)
+			(uuid "fcb23b29-57b1-4e0d-a0ef-7749ae75c236")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(instances
+			(project "gnss-fe"
+				(path "/32c841a2-ce96-4499-8ddc-dc963989905a"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 20.32 111.76)
+		(size 50.8 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "36a94d0a-7f28-40bc-8aa7-8cc266aca091")
+		(property "Sheetname" "I. Конструкция"
+			(at 20.32 111.06 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "I_mech.kicad_sch"
+			(at 20.32 132.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "gnss-fe"
+				(path "/32c841a2-ce96-4499-8ddc-dc963989905a"
+					(page "10")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 20.32 60.96)
+		(size 55.88 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "5fdef5bf-0508-4963-9426-b35c422cc439")
+		(property "Sheetname" "B. Вход антенны и Bias-T"
+			(at 20.32 60.26 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "B_antenna.kicad_sch"
+			(at 20.32 86.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "DIV_IN" output
+			(at 76.2 73.66 0)
+			(uuid "cac9c5b1-7229-455f-806b-f2cec947068a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(instances
+			(project "gnss-fe"
+				(path "/32c841a2-ce96-4499-8ddc-dc963989905a"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 264.16 55.88)
+		(size 50.8 30.48)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "6b95880e-4633-4cec-bf76-e76a7377026e")
+		(property "Sheetname" "H. Вход гетеродина"
+			(at 264.16 55.18 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "H_LO.kicad_sch"
+			(at 264.16 86.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "LO_HPF" output
+			(at 264.16 71.12 180)
+			(uuid "d7f47709-dbf3-462f-bfeb-3343637726e5")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "gnss-fe"
+				(path "/32c841a2-ce96-4499-8ddc-dc963989905a"
+					(page "9")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 182.88 137.16)
+		(size 55.88 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "c98c8d73-29a0-41b5-85b7-d3f91f0e5361")
+		(property "Sheetname" "G. OUT4 — широкая полоса"
+			(at 182.88 136.46 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "G_OUT4.kicad_sch"
+			(at 182.88 158.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "P4" input
+			(at 182.88 147.32 180)
+			(uuid "580f2a1a-4565-4e97-a868-ecf1172edcd7")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "gnss-fe"
+				(path "/32c841a2-ce96-4499-8ddc-dc963989905a"
+					(page "8")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 101.6 50.8)
+		(size 45.72 45.72)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "eff82b97-bcd9-4baa-bdaa-1905745c7b2c")
+		(property "Sheetname" "C. Делитель 1:2 + 1:2"
+			(at 101.6 50.1 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "C_divider.kicad_sch"
+			(at 101.6 97.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "DIV_IN" input
+			(at 101.6 73.66 180)
+			(uuid "8e0c5dd5-7dd4-4e5b-acd1-cffa3227e57f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "P1" output
+			(at 147.32 58.42 0)
+			(uuid "8f5138e5-ea9e-4ad5-9a94-177f55dc93e1")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "P2" output
+			(at 147.32 68.58 0)
+			(uuid "deaa972e-0208-44af-a2be-7f9c174dc4d9")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "P3" output
+			(at 147.32 78.74 0)
+			(uuid "19d29b81-df9e-4635-b4a2-9d588846b653")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "P4" output
+			(at 147.32 88.9 0)
+			(uuid "7b9a7735-e8e1-4947-b9ac-e46db8c13284")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(instances
+			(project "gnss-fe"
+				(path "/32c841a2-ce96-4499-8ddc-dc963989905a"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+)

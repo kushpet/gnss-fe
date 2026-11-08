@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "gnss-fe")(type "KiCad")(uri "${KIPRJMOD}/gnss-fe.kicad_sym")(options "")(descr "Символы платы v2"))
+)
