@@ -1,1 +1,23 @@
+# Python
 __pycache__/
+*.pyc
+
+# KiCad — большие/генерируемые файлы (выводы производства и экспорт)
+/gerber/
+/plots/
+*.gbr
+*.drl
+*.pdf
+*.svg
+*.zip
+
+# KiCad — служебные и временные файлы
+*.kicad_prl
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*-bak
+_autosave-*
+fp-info-cache
+*.lck
+~*.lck
+
